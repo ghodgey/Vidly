@@ -13,15 +13,20 @@ namespace Vidly.Dtos
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // these are called data annotations
         public int Id { get; set; }
 
-        [Required] public string Name { get; set; }
+        [Required]
+        public string Name { get; set; }
 
         //public Genres Genres { get; set; }
 
-        [Display(Name = "Genre")] public int GenresId { get; set; }
+        [Display(Name = "Genre")]
+        public int GenresId { get; set; }
 
-        [Display(Name = "Release Date")] public DateTime ReleaseDate { get; set; }
+        [Display(Name = "Release Date")]
+        public DateTime ReleaseDate { get; set; }
 
         public DateTime DateAdded { get; set; }
+
+        public GenresDto Genres { get; set; }
 
         [Display(Name = "Number in stock")]
         [Range(1, 20)]
