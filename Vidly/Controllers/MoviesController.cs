@@ -26,8 +26,14 @@ namespace Vidly.Controllers
         public ActionResult Index()
         {
             // var customers = _context.Customers.Include(c => c.MembershipType).ToList();
-            var movies = _context.Movies.Include(m => m.Genres).ToList();
-            return View(movies);
+            //var movies = _context.Movies.Include(m => m.Genres).ToList();
+            if (User.IsInRole("CanManageMovies"))
+            {
+                return View("List");
+            }
+
+            return View("ReadOnlyList");
+
         }
 
         [Route("movies/details/{moviesId}")]
@@ -44,6 +50,7 @@ namespace Vidly.Controllers
             return HttpNotFound();
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult New()
         {
             var genres = _context.Genres.ToList();

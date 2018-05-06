@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
 
 namespace Vidly.Models
 {
@@ -8,6 +9,9 @@ namespace Vidly.Models
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+        [Required]
+        [Display(Name = "Driving License")]
+        public string DrivingLicense { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -48,6 +52,7 @@ namespace Vidly.Models
 
     public class LoginViewModel
     {
+        
         [Required]
         [Display(Name = "Email")]
         [EmailAddress]
@@ -64,6 +69,9 @@ namespace Vidly.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [Display(Name = "Driving License")]
+        public string DrivingLicense { get; set; }
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -83,6 +91,8 @@ namespace Vidly.Models
 
     public class ResetPasswordViewModel
     {
+        
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
