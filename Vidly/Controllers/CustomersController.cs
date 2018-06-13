@@ -104,11 +104,11 @@ namespace Vidly.Controllers
 
             return RedirectToAction("Index", "Customers");
         }
-
-        public ActionResult Edit(int customerid)
+        [Route("customers/edit/{customerId}")]
+        public ActionResult Edit(int customerId)
         {
             
-            var customer = _context.Customers.SingleOrDefault(c => c.Id == customerid);
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == customerId);
             if (customer == null)
                 return HttpNotFound();
 

@@ -15,6 +15,8 @@ namespace Vidly.Models
         [StringLength(255)]
         public string DrivingLicense { get; set; }
 
+        
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -36,6 +38,8 @@ namespace Vidly.Models
         public DbSet<Movies> Movies { get; set; }
         public DbSet<MembershipType> MembershipTypes  { get; set; }
         public DbSet<Genres> Genres { get; set; }
+        public DbSet<Rentals> Rentals { get; set; }
+
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

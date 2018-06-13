@@ -12,16 +12,23 @@
             <ul class="nav navbar-nav">
                 <li>
                     @Html.ActionLink(
-                 linkText: "Customers",
-                 actionName: "Index",
-                 controllerName: "Customers")
-            </li>
-            <li>
-                @Html.ActionLink(
-             linkText: "Movies",
-             actionName: "Index",
-             controllerName: "Movies")
-            </li>
+                        linkText: "New Rental",
+                        actionName: "New",
+                        controllerName: "Rentals")
+                </li>
+
+                <li>
+                    @Html.ActionLink(
+                        linkText: "Customers",
+                        actionName: "Index",
+                        controllerName: "Customers")
+                </li>
+                <li>
+                    @Html.ActionLink(
+                        linkText: "Movies",
+                        actionName: "Index",
+                        controllerName: "Movies")
+                </li>
             </ul>
             @Html.Partial("_LoginPartial")
         </div>

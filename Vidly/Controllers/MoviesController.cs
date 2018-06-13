@@ -63,7 +63,8 @@ namespace Vidly.Controllers
             //implement adding a new movie view
             
         }
-
+        [Authorize(Roles = RoleName.CanManageMovies)]
+        [Route("movies/edit/{moviesId}")]
         public ActionResult Edit(int? moviesId)
         {
             var movie = _context.Movies.Single(m => m.Id == moviesId);
@@ -79,6 +80,7 @@ namespace Vidly.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Save(Movies movies)
         {
             if (!ModelState.IsValid)

@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 
 namespace Vidly.Controllers
 {
     [AllowAnonymous]
     public class HomeController : Controller
     {
+        //Caching HTML - Do this only when you have performance issues [OutputCache(Duration = 50, Location = OutputCacheLocation.Server, VaryByParam = "genre")]
+        //Disable caching [OutputCache(Duration = 0, VaryByParam = "*", NoStore = true)]
         public ActionResult Index()
         {
             return View();
@@ -16,6 +19,7 @@ namespace Vidly.Controllers
 
         public ActionResult About()
         {
+
             ViewBag.Message = "Your application description page.";
 
             return View();
